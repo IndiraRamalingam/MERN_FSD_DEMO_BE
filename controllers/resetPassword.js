@@ -34,7 +34,8 @@ const resetPassword ={
     );
 
 //     let link = `http://localhost:5173/reset_password/${userDB._id}/${token}`;
-  let link = `http://localhost:5173/reset_password/${token}`;
+//  let link = `http://localhost:5173/reset_password/${token}`;
+ let link = `https://dynamic-banoffee-ec2200.netlify.app/reset_password/${token}`;       
 
     await sendMail(userDB.email, "Password Reset App - Reset your password", `<p>Hello! ${email}, You have requested to reset your password.</p>
     <p>Please click the following link to reset your password: ${link}`);
