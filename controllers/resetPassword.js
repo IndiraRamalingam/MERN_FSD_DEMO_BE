@@ -55,7 +55,8 @@ const resetPassword ={
       
       console.log("Entered")
       const{token,password} = req.body;
-      console.log( token,password)
+      console.log( token)
+        console.log("Token --> "+{token});
       
        let userDB=await User.findOne({ resetToken: token });
       //  //checking user is in db or not
@@ -68,7 +69,7 @@ const resetPassword ={
 
         //checking if the time limit to change the password has the expired
         const isntExpired = userDB.resetExpiry > Date.now();
-        console.log(isTokenValid, isntExpired);
+        console.log("Settt.....  "+isTokenValid, isntExpired);
 
         if (isTokenValid && isntExpired) {
         console.log("YESSS")
