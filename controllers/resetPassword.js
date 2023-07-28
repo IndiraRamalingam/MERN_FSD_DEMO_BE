@@ -86,7 +86,7 @@ const resetPassword ={
           );
 
           res.status(200).send({ success: "password updated successfully" });
-        } else res.status(400).send({ Error: "Invalid Link or Expired" });
+        } else res.status(400).send({ Error: "Invalid Link or Expired !!!" });
 
           }
           catch(error)

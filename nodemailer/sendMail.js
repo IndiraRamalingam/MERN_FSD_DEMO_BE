@@ -1,7 +1,7 @@
 const nodemailer = require('nodemailer')
 const CONFIG=require('../utils/config')
 
-console.log(CONFIG.USER+"  "+CONFIG.PASSWORD);
+
 const sendMail = async (email, subject, text) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
