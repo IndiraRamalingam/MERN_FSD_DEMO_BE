@@ -72,7 +72,8 @@ const resetPassword ={
 
         if (isTokenValid && isntExpired) {
         console.log("Passed")
-          const hashedNewPassword = await bcrypt.hash(password, Number(10));
+            
+          const hashedNewPassword = await bcrypt.hash(password, 10);
           console.log("HashedPW -->  "+ hashedNewPassword);
 
           //deleting the token and expiry time after updating password
