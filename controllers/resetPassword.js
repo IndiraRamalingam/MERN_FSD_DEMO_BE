@@ -2,8 +2,7 @@ const User = require('../models/user');
 const bcrypt=require('bcrypt');
 const randomstring=require('randomstring');
 const sendMail = require('../nodemailer/sendMail');
-// const mongoose = require('mongoose');
-// const O_id = new mongoose.Types.ObjectId();
+
 
 const resetPassword ={
     sendToken : async(req,res)=>{
@@ -56,7 +55,7 @@ const resetPassword ={
       console.log("Entered")
       const{token,password} = req.body;
       console.log( token)
-        console.log("Token --> "+{token});
+      
       
        let userDB=await User.findOne({ resetToken: token });
       //  //checking user is in db or not
@@ -69,12 +68,13 @@ const resetPassword ={
 
         //checking if the time limit to change the password has the expired
         const isntExpired = userDB.resetExpiry > Date.now();
-        console.log("Settt.....  "+isTokenValid, isntExpired);
+        console.log("Checking... "+isTokenValid, isntExpired);
 
         if (isTokenValid && isntExpired) {
-        console.log("YESSS")
+        console.log("Passed")
           const hashedNewPassword = await bcrypt.hash(password, Number(10));
-          
+          console.log("HashedPW -->  "+ hashedNewPassword);
+
           //deleting the token and expiry time after updating password
           const updatePasswordDB = await User.findOneAndUpdate(
             { resetToken: token },
