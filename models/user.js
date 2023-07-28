@@ -15,6 +15,8 @@ const userSchema=new Schema({
         type:String,
         required:true
     },
+    resetToken : String,
+    resetExpiry : Date,
     createdAt:{
         type:Date,
         default:Date.now
